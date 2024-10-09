@@ -1,9 +1,19 @@
 import tkinter as tk
+import serial
+import time
 
+global ser
 
 def ConnectSerial(PortString):
-    ConnectionStateMessage.set("Connected")
+    global ser
+    ConnectionStateMessage.set("...")
+    try:
+        ser = serial.Serial(port= PortString, baudrate=9600, timeout=10)  # create Serial Object, baud = 9600, read times out after 10s
+        time.sleep(3)  # delay 3 seconds to allow serial com to get established
 
+        ConnectionStateMessage.set("Connected")
+    except:
+        ConnectionStateMessage.set("Connection Failed")
 
 # Build GUI to take Com Port------------------------------------------------------------------------------------------------------------
 tkTop = tk.Tk()  # Create GUI Box
