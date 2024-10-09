@@ -6,6 +6,13 @@ from StartUp import *
 global ser
 global ConnectionStateMessage
 
-ComsState = runStartUp()
+################################################
+## set up Serial Coms
+################################################
+ComsState = False
 
-print("test")
+while not ComsState:
+    ComsState = runStartUp()
+
+
+print(ComsState)
