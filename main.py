@@ -19,7 +19,7 @@ while not ComsState:
 ################################################################################################
 # Build GUI to take Com Port---------------------------------------------
 tkTop = tk.Tk()  # Create GUI Box
-tkTop.geometry('1200x800')  # size of GUI
+tkTop.geometry('800x800')  # size of GUI
 tkTop.title("PTCA-Machine Controller")  # title in top left of window
 
 Title = tk.Label(text='PTCA Machine Controller', font=("Courier", 14, 'bold')).pack()
@@ -32,11 +32,14 @@ TubePropertiesFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 
 TubeFrame_Label = tk.Label(master=TubePropertiesFrame, text='Tube Properties', font=("Courier", 12, 'bold')).pack(side='top', ipadx=0, padx=0, pady=0)
 
-TubeLengthFrame = tk.Frame(master=TubePropertiesFrame, width=400).pack(fill=tk.BOTH, side=tk.TOP, expand=True)
-TubeLength_Label = tk.Label(master=TubeLengthFrame, text='Tube Length (mm)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=0, pady=0)
+TubeLengthFrame = tk.Frame(master=TubePropertiesFrame, width=400)
+TubeLengthFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+
+TubeLength_Label = tk.Label(master=TubeLengthFrame, text='Tube Length (mm)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 TubeLength_entry = tk.Entry(TubeLengthFrame).pack(side='left', ipadx=0, padx=0, pady=0)
 
-TubeRadiusFrame = tk.Frame(master=TubePropertiesFrame, width=400).pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+TubeRadiusFrame = tk.Frame(master=TubePropertiesFrame, width=400)
+TubeRadiusFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 TubeRadius_Label = tk.Label(master=TubeRadiusFrame, text='Tube Radius (mm)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 TubeRadius_entry = tk.Entry(TubeRadiusFrame).pack(side='left', ipadx=0, padx=0, pady=0)
 
@@ -48,20 +51,24 @@ MusclePropertiesFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 
 MuscleFrame_Label = tk.Label(master=MusclePropertiesFrame, text='Muscle Properties', font=("Courier", 12, 'bold')).pack(side='top', ipadx=0, padx=0, pady=0)
 
-TwistAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400).pack(fill=tk.BOTH, side=tk.TOP, expand=True)
-TwistAngle_Label = tk.Label(master=TwistAngleFrame, text='Twist Angle (Deg)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=0, pady=0)
+TwistAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
+TwistAngleFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+TwistAngle_Label = tk.Label(master=TwistAngleFrame, text='Twist Angle (Deg)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 TwistAngle_entry = tk.Entry(TwistAngleFrame).pack(side='left', ipadx=0, padx=0, pady=0)
 
-FRAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400).pack(fill=tk.BOTH, side=tk.TOP, expand=True)
-FRAngle_Label = tk.Label(master=FRAngleFrame, text='FR Angle (Deg)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=0, pady=0)
+FRAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
+FRAngleFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+FRAngle_Label = tk.Label(master=FRAngleFrame, text='FR Angle (Deg)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 FRAngle_entry = tk.Entry(FRAngleFrame).pack(side='left', ipadx=0, padx=0, pady=0)
 
-coldDrawRatioFrame = tk.Frame(master=MusclePropertiesFrame, width=400).pack(fill=tk.BOTH, side=tk.TOP, expand=True)
-coldDrawRatio_Label = tk.Label(master=coldDrawRatioFrame, text='Cold Draw Ratio', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=0, pady=0)
+coldDrawRatioFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
+coldDrawRatioFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+coldDrawRatio_Label = tk.Label(master=coldDrawRatioFrame, text='Cold Draw Ratio', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 coldDrawRatio_entry = tk.Entry(coldDrawRatioFrame).pack(side='left', ipadx=0, padx=0, pady=0)
 
-CoilAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400).pack(fill=tk.BOTH, side=tk.TOP, expand=True)
-CoilAngle_Label = tk.Label(master=CoilAngleFrame, text='Coil Angle (Deg)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=0, pady=0)
+CoilAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
+CoilAngleFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+CoilAngle_Label = tk.Label(master=CoilAngleFrame, text='Coil Angle (Deg)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 CoilAngle_entry = tk.Entry(CoilAngleFrame).pack(side='left', ipadx=0, padx=0, pady=0)
 
 ###############################
@@ -70,7 +77,12 @@ CoilAngle_entry = tk.Entry(CoilAngleFrame).pack(side='left', ipadx=0, padx=0, pa
 ControlsFrame = tk.Frame(master=tkTop, width=400)
 ControlsFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 
-HomeButton = tk.Button(ControlsFrame,
+ControlsFrame_Label = tk.Label(master=ControlsFrame, text='Controls', font=("Courier", 12, 'bold')).pack(side='top', ipadx=0, padx=0, pady=0)
+
+TopRowControlsFrame=tk.Frame(master=ControlsFrame, width=400)
+TopRowControlsFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+
+HomeButton = tk.Button(TopRowControlsFrame,
                                        text="Home",
                                        command= print('Test'),
                                        height=3,
@@ -80,7 +92,7 @@ HomeButton = tk.Button(ControlsFrame,
                                        activebackground='green'
                                        ).pack(side='left', ipadx=10, padx=10, pady=40)
 
-ColdDrawButton = tk.Button(ControlsFrame,
+ColdDrawButton = tk.Button(TopRowControlsFrame,
                                        text="Cold Draw",
                                        command= print('Test'),
                                        height=3,
@@ -90,7 +102,7 @@ ColdDrawButton = tk.Button(ControlsFrame,
                                        activebackground='green'
                                        ).pack(side='left', ipadx=10, padx=10, pady=40)
 
-FrButton = tk.Button(ControlsFrame,
+FrButton = tk.Button(TopRowControlsFrame,
                                        text="Fiber Reinforce",
                                        command= print('Test'),
                                        height=3,
@@ -100,7 +112,7 @@ FrButton = tk.Button(ControlsFrame,
                                        activebackground='green'
                                        ).pack(side='left', ipadx=10, padx=10, pady=40)
 
-TwistButton = tk.Button(ControlsFrame,
+TwistButton = tk.Button(TopRowControlsFrame,
                                        text="Twist",
                                        command= print('Test'),
                                        height=3,
@@ -110,7 +122,7 @@ TwistButton = tk.Button(ControlsFrame,
                                        activebackground='green'
                                        ).pack(side='left', ipadx=10, padx=10, pady=40)
 
-CoilButton = tk.Button(ControlsFrame,
+CoilButton = tk.Button(TopRowControlsFrame,
                                        text="Coil",
                                        command= print('Test'),
                                        height=3,
@@ -120,14 +132,16 @@ CoilButton = tk.Button(ControlsFrame,
                                        activebackground='green'
                                        ).pack(side='left', ipadx=10, padx=10, pady=40)
 
-StopButton = tk.Button(ControlsFrame,
+BottomRowControlsFrame=tk.Frame(master=ControlsFrame, width=400)
+BottomRowControlsFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+StopButton = tk.Button(BottomRowControlsFrame,
                                        text="Stop",
                                        command= print('Test'),
                                        height=3,
                                        fg="black",
                                        width=10,
                                        bd=5,
-                                       activebackground='green'
+                                       activebackground='red'
                                        ).pack(side='bottom', ipadx=10, padx=10, pady=40)
 
 tk.mainloop()
