@@ -2,6 +2,7 @@ import tkinter as tk
 import serial
 import time
 from StartUp import *
+from ControlButtonFunctions import *
 
 global ser
 global ConnectionStateMessage
@@ -19,7 +20,7 @@ while not ComsState:
 ################################################################################################
 # Build GUI to take Com Port---------------------------------------------
 tkTop = tk.Tk()  # Create GUI Box
-tkTop.geometry('800x800')  # size of GUI
+tkTop.geometry('600x600')  # size of GUI
 tkTop.title("PTCA-Machine Controller")  # title in top left of window
 
 Title = tk.Label(text='PTCA Machine Controller', font=("Courier", 14, 'bold')).pack()
