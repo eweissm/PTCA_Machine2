@@ -5,6 +5,7 @@ import time
 global ser
 global ConnectionStateMessage
 global ConnectionState
+import sys, threading, queue, serial
 
 ConnectionState = False #default we are not connected
 
@@ -15,7 +16,7 @@ def ConnectSerial(PortString):
 
     ConnectionStateMessage.set("...")
     try:
-        ser = serial.Serial(port= PortString, baudrate=9600, timeout=10)  # create Serial Object, baud = 9600, read times out after 10s
+        ser = serial.Serial(port= PortString, baudrate=115200, timeout=10)  # create Serial Object, baud = 9600, read times out after 10s
         time.sleep(3)  # delay 3 seconds to allow serial com to get established
 
         ConnectionStateMessage.set("Connected")
