@@ -1,17 +1,18 @@
 import tkinter as tk
 
-ConnectionStateMessage = 'Not Connected'
 
 def ConnectSerial(PortString):
-    global ConnectionStateMessage
-    ConnectionStateMessage = 'Connected'
+    ConnectionStateMessage.set("Connected")
 
-    ConnectionState_Label.config(text=ConnectionStateMessage)
 
-# Build GUI------------------------------------------------------------------------------------------------------------
+# Build GUI to take Com Port------------------------------------------------------------------------------------------------------------
 tkTop = tk.Tk()  # Create GUI Box
 tkTop.geometry('400x200')  # size of GUI
 tkTop.title("PTCA-Machine Startup")  # title in top left of window
+
+#define some global Vars
+ConnectionStateMessage = tk.StringVar()
+ConnectionStateMessage.set("Not Connected")
 
 # Title on top middle of screen
 Title = tk.Label(text='Please Select a Com Port', font=("Courier", 14, 'bold')).pack()
@@ -40,7 +41,7 @@ ConnectButton = tk.Button(ButtonFrame,
                                    )
 ConnectButton.pack(side='left', ipadx=10, padx=10, pady=40)
 
-ConnectionState_Label = tk.Label(master=ButtonFrame, text=ConnectionStateMessage, font=("Courier", 10)).pack(side='left', ipadx=0, padx=0, pady=0)
+ConnectionState_Label = tk.Label(master=ButtonFrame, textvariable=ConnectionStateMessage, font=("Courier", 10)).pack(side='left', ipadx=0, padx=0, pady=0)
 
 
 ExitStartup_Button = tk.Button(ButtonFrame,
