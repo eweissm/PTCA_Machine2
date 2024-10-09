@@ -3,19 +3,31 @@ import serial
 import time
 
 global ser
+global ConnectionStateMessage
+global ConnectionState
+
+ConnectionState = False #default we are not connected
 
 def ConnectSerial(PortString):
     global ser
+    global ConnectionStateMessage
+    global ConnectionState
+
     ConnectionStateMessage.set("...")
     try:
         ser = serial.Serial(port= PortString, baudrate=9600, timeout=10)  # create Serial Object, baud = 9600, read times out after 10s
         time.sleep(3)  # delay 3 seconds to allow serial com to get established
 
         ConnectionStateMessage.set("Connected")
+        ConnectionState = True
     except:
         ConnectionStateMessage.set("Connection Failed")
+        ConnectionState = False
 
 def runStartUp():
+    global ConnectionState
+    global ConnectionStateMessage
+
     # Build GUI to take Com Port------------------------------------------------------------------------------------------------------------
     tkTop = tk.Tk()  # Create GUI Box
     tkTop.geometry('400x200')  # size of GUI
@@ -30,7 +42,6 @@ def runStartUp():
 
     BodyFrame = tk.Frame(master=tkTop, width=400) # create frame for the entry controls
     BodyFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
-
 
     ComPortInput_Label = tk.Label(master=BodyFrame, text='Com Port:', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=0, pady=0)
     ComPortInput_entry = tk.Entry(BodyFrame)
@@ -67,3 +78,4 @@ def runStartUp():
     ExitStartup_Button.pack(side='right', ipadx=10, padx=10, pady=40)
 
     tk.mainloop()
+    return ConnectionState
