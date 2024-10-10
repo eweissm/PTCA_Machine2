@@ -20,9 +20,19 @@ def ReadInputs():
     FRAngle = FRAngle_entry.get()
     coilAngle = CoilAngle_entry.get()
 
+    return (twistAngle, tubeLength, tubeRadius, coldDrawRatio, FRAngle, coilAngle)
 
 def Home():
-    print("test")
+    Parameters = ReadInputs()
+    msg = 'A' #Add command indicator to msg
+
+    for i in Parameters:
+        msg = msg+','+i #add the parameters to the message
+
+    msg = msg + 'Z' # add end of message indicator
+
+    print(msg)
+    #ser.write(bytes( str(msg), 'UTF-8'))
 
 def ColdDraw(TubeInitialLength, ColdDrawRatio):
     print("test")
