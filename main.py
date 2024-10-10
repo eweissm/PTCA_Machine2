@@ -2,11 +2,56 @@ import tkinter as tk
 import serial
 import time
 from StartUp import *
-from ControlButtonFunctions import *
+#from ControlButtonFunctions import *
 
 global ser
 global ConnectionStateMessage
+global arduinoQueue
+global localQueue
 
+################################################################################################
+## Define some functions
+################################################################################################
+def ReadInputs():
+    twistAngle = TwistAngle_entry.get()
+    tubeLength = TubeLength_entry.get()
+    tubeRadius = TubeRadius_entry.get()
+    coldDrawRatio = coldDrawRatio_entry.get()
+    FRAngle = FRAngle_entry.get()
+    coilAngle = CoilAngle_entry.get()
+
+
+def Home():
+    print("test")
+
+def ColdDraw(TubeInitialLength, ColdDrawRatio):
+    print("test")
+
+def FiberReinforce(FR_Angle, TubeRadius):
+    print("test")
+
+def Twist(TwistAngle, TubeInitialLength, ColdDrawRatio):
+    print("test")
+
+def Coil(CoilAngle):
+    print("test")
+
+def Stop():
+    print("test")
+
+arduinoQueue = queue.Queue()
+localQueue = queue.Queue()
+
+def listenToArduino():
+    message = b''
+    while True:
+        incoming = ser.read()
+        if (incoming == b'\n'):
+            arduinoQueue.put(message.decode('utf-8').strip().upper())
+            message = b''
+        else:
+            if ((incoming != b'') and (incoming != b'\r')):
+                 message += incoming
 ################################################################################################
 ## set up Serial Coms
 ################################################################################################
@@ -101,7 +146,7 @@ HomeButton = tk.Button(TopRowControlsFrame,
 
 ColdDrawButton = tk.Button(TopRowControlsFrame,
                                        text="Cold Draw",
-                                       command= lambda: ColdDraw(TubeLength_entry.get(), coldDrawRatio_entry.get()),
+                                       command= ColdDraw,
                                        height=3,
                                        fg="black",
                                        width=10,
@@ -111,7 +156,7 @@ ColdDrawButton = tk.Button(TopRowControlsFrame,
 
 FrButton = tk.Button(TopRowControlsFrame,
                                        text="Fiber Reinforce",
-                                       command= lambda: FiberReinforce(FRAngle_entry.get(), TubeRadius_entry.get()),
+                                       command= FiberReinforce,
                                        height=3,
                                        fg="black",
                                        width=10,
@@ -121,7 +166,7 @@ FrButton = tk.Button(TopRowControlsFrame,
 
 TwistButton = tk.Button(TopRowControlsFrame,
                                        text="Twist",
-                                       command= lambda: Twist(TwistAngle_entry.get, TubeLength_entry.get(), coldDrawRatio_entry.get()),
+                                       command= Twist,
                                        height=3,
                                        fg="black",
                                        width=10,
@@ -131,7 +176,7 @@ TwistButton = tk.Button(TopRowControlsFrame,
 
 CoilButton = tk.Button(TopRowControlsFrame,
                                        text="Coil",
-                                       command= lambda: Coil(CoilAngle_entry.get()),
+                                       command= Coil,
                                        height=3,
                                        fg="black",
                                        width=10,
