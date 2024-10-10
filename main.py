@@ -35,7 +35,6 @@ def packAndSendMsg(Command):
 
     msg = msg + 'Z'  # add end of message indicator
 
-    print(msg)
     ser.write(bytes(str(msg), 'UTF-8'))
 
 arduinoQueue = queue.Queue()
@@ -51,8 +50,6 @@ def listenToArduino():
         else:
             if ((incoming != b'') and (incoming != b'\r')):
                  message += incoming
-
-
 
 
 ConnectionState = False #default we are not connected
