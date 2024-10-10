@@ -10,6 +10,8 @@ global ConnectionStateMessage
 global arduinoQueue
 global localQueue
 global ConnectionState
+global SerialReq
+
 ################################################################################################
 ## Define some functions
 ################################################################################################
@@ -73,10 +75,11 @@ def ConnectSerial(PortString):
 def runStartUp():
     global ConnectionState
     global ConnectionStateMessage
+    global SerialReq
 
     # Build GUI to take Com Port------------------------------------------------------------------------------------------------------------
     tkTop = tk.Tk()  # Create GUI Box
-    tkTop.geometry('400x200')  # size of GUI
+    tkTop.geometry('600x200')  # size of GUI
     tkTop.title("PTCA-Machine Startup")  # title in top left of window
 
     #define some global Vars
@@ -123,16 +126,22 @@ def runStartUp():
                                        )
     ExitStartup_Button.pack(side='right', ipadx=10, padx=10, pady=40)
 
+
+    checkbutton = tk.Checkbutton(master=ButtonFrame, text="Disable Serial Req", variable=SerialReq, onvalue=True, offvalue=False)
+    checkbutton.pack(side='right', ipadx=10, padx=10, pady=40)
+
     tk.mainloop()
-    return ConnectionState
+    return ConnectionState, SerialReq
 
 ################################################################################################
 ## set up Serial Coms
 ################################################################################################
 ComsState = False
+SerialReq = False
 
-while not ComsState:
-    ComsState = runStartUp()
+while not ComsState or SerialReq:
+    ComsState, SerialReq = runStartUp()
+    print(SerialReq)
 
 ################################################################################################
 ## Robot Controls
