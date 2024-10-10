@@ -23,33 +23,56 @@ def ReadInputs():
 
     return (twistAngle, tubeLength, tubeRadius, coldDrawRatio, FRAngle, coilAngle)
 
-def Home():
+def packAndSendMsg(Command):
     global ser
     Parameters = ReadInputs()
-    msg = 'A' #Add command indicator to msg
+    msg = Command  # Add command indicator to msg
 
     for i in Parameters:
-        msg = msg+','+i #add the parameters to the message
+        msg = msg + ',' + i  # add the parameters to the message
 
-    msg = msg + 'Z' # add end of message indicator
+    msg = msg + 'Z'  # add end of message indicator
 
     print(msg)
-    ser.write(bytes( str(msg), 'UTF-8'))
+    ser.write(bytes(str(msg), 'UTF-8'))
 
-def ColdDraw(TubeInitialLength, ColdDrawRatio):
-    print("test")
-
-def FiberReinforce(FR_Angle, TubeRadius):
-    print("test")
-
-def Twist(TwistAngle, TubeInitialLength, ColdDrawRatio):
-    print("test")
-
-def Coil(CoilAngle):
-    print("test")
-
-def Stop():
-    print("test")
+# def Home():
+#     global ser
+#     Parameters = ReadInputs()
+#     msg = 'A' #Add command indicator to msg
+#
+#     for i in Parameters:
+#         msg = msg+','+i #add the parameters to the message
+#
+#     msg = msg + 'Z' # add end of message indicator
+#
+#     print(msg)
+#     ser.write(bytes( str(msg), 'UTF-8'))
+#
+# def ColdDraw(TubeInitialLength, ColdDrawRatio):
+#     global ser
+#     Parameters = ReadInputs()
+#     msg = 'B'  # Add command indicator to msg
+#
+#     for i in Parameters:
+#         msg = msg + ',' + i  # add the parameters to the message
+#
+#     msg = msg + 'Z'  # add end of message indicator
+#
+#     print(msg)
+#     ser.write(bytes(str(msg), 'UTF-8'))
+#
+# def FiberReinforce(FR_Angle, TubeRadius):
+#     print("test")
+#
+# def Twist(TwistAngle, TubeInitialLength, ColdDrawRatio):
+#     print("test")
+#
+# def Coil(CoilAngle):
+#     print("test")
+#
+# def Stop():
+#     print("test")
 
 arduinoQueue = queue.Queue()
 localQueue = queue.Queue()
@@ -226,7 +249,7 @@ TopRowControlsFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 
 HomeButton = tk.Button(TopRowControlsFrame,
                                        text="Home",
-                                       command= Home,
+                                       command= lambda: packAndSendMsg('A'),
                                        height=3,
                                        fg="black",
                                        width=10,
@@ -236,7 +259,7 @@ HomeButton = tk.Button(TopRowControlsFrame,
 
 ColdDrawButton = tk.Button(TopRowControlsFrame,
                                        text="Cold Draw",
-                                       command= ColdDraw,
+                                       command= lambda: packAndSendMsg('B'),
                                        height=3,
                                        fg="black",
                                        width=10,
@@ -246,7 +269,7 @@ ColdDrawButton = tk.Button(TopRowControlsFrame,
 
 FrButton = tk.Button(TopRowControlsFrame,
                                        text="Fiber Reinforce",
-                                       command= FiberReinforce,
+                                       command= lambda: packAndSendMsg('C'),
                                        height=3,
                                        fg="black",
                                        width=10,
@@ -256,7 +279,7 @@ FrButton = tk.Button(TopRowControlsFrame,
 
 TwistButton = tk.Button(TopRowControlsFrame,
                                        text="Twist",
-                                       command= Twist,
+                                       command= lambda: packAndSendMsg('D'),
                                        height=3,
                                        fg="black",
                                        width=10,
@@ -266,7 +289,7 @@ TwistButton = tk.Button(TopRowControlsFrame,
 
 CoilButton = tk.Button(TopRowControlsFrame,
                                        text="Coil",
-                                       command= Coil,
+                                       command= lambda: packAndSendMsg('E'),
                                        height=3,
                                        fg="black",
                                        width=10,
@@ -278,7 +301,7 @@ BottomRowControlsFrame=tk.Frame(master=ControlsFrame, width=400)
 BottomRowControlsFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 StopButton = tk.Button(BottomRowControlsFrame,
                                        text="Stop",
-                                       command= Stop,
+                                       command= lambda: packAndSendMsg('F'),
                                        height=3,
                                        fg="black",
                                        width=10,
