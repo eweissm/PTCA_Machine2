@@ -14,6 +14,7 @@ global ConnectionState
 ## Define some functions
 ################################################################################################
 def ReadInputs():
+    #reads inputs from text entries and passes them as a tuple
     twistAngle = TwistAngle_entry.get()
     tubeLength = TubeLength_entry.get()
     tubeRadius = TubeRadius_entry.get()
@@ -24,6 +25,7 @@ def ReadInputs():
     return (twistAngle, tubeLength, tubeRadius, coldDrawRatio, FRAngle, coilAngle)
 
 def packAndSendMsg(Command):
+    #Packs together our message, taking the command character and the text entries and sends it over serial
     global ser
     Parameters = ReadInputs()
     msg = Command  # Add command indicator to msg
@@ -35,44 +37,6 @@ def packAndSendMsg(Command):
 
     print(msg)
     ser.write(bytes(str(msg), 'UTF-8'))
-
-# def Home():
-#     global ser
-#     Parameters = ReadInputs()
-#     msg = 'A' #Add command indicator to msg
-#
-#     for i in Parameters:
-#         msg = msg+','+i #add the parameters to the message
-#
-#     msg = msg + 'Z' # add end of message indicator
-#
-#     print(msg)
-#     ser.write(bytes( str(msg), 'UTF-8'))
-#
-# def ColdDraw(TubeInitialLength, ColdDrawRatio):
-#     global ser
-#     Parameters = ReadInputs()
-#     msg = 'B'  # Add command indicator to msg
-#
-#     for i in Parameters:
-#         msg = msg + ',' + i  # add the parameters to the message
-#
-#     msg = msg + 'Z'  # add end of message indicator
-#
-#     print(msg)
-#     ser.write(bytes(str(msg), 'UTF-8'))
-#
-# def FiberReinforce(FR_Angle, TubeRadius):
-#     print("test")
-#
-# def Twist(TwistAngle, TubeInitialLength, ColdDrawRatio):
-#     print("test")
-#
-# def Coil(CoilAngle):
-#     print("test")
-#
-# def Stop():
-#     print("test")
 
 arduinoQueue = queue.Queue()
 localQueue = queue.Queue()
