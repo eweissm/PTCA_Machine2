@@ -8,7 +8,7 @@ global arduinoQueue
 global localQueue
 
 arduinoQueue = queue.Queue()
-localQueue = queue.Queue()y
+localQueue = queue.Queue()
 def Home():
     print("test")
 
