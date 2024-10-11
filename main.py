@@ -141,7 +141,7 @@ SerialReq = 0
 
 while not ComsState and SerialReq== 0:
     ComsState, SerialReq = runStartUp()
-    print(SerialReq)
+
 
 ################################################################################################
 ## Robot Controls
