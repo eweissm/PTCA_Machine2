@@ -75,7 +75,7 @@ def ConnectSerial(PortString):
 def runStartUp():
     global ConnectionState
     global ConnectionStateMessage
-    global SerialReq
+    #global SerialReq
 
     # Build GUI to take Com Port------------------------------------------------------------------------------------------------------------
     tkTop = tk.Tk()  # Create GUI Box
@@ -126,20 +126,20 @@ def runStartUp():
                                        )
     ExitStartup_Button.pack(side='right', ipadx=10, padx=10, pady=40)
 
-
+    SerialReq = tk.IntVar()
     checkbutton = tk.Checkbutton(master=ButtonFrame, text="Disable Serial Req", variable=SerialReq, onvalue=True, offvalue=False)
     checkbutton.pack(side='right', ipadx=10, padx=10, pady=40)
 
     tk.mainloop()
-    return ConnectionState, SerialReq
+    return ConnectionState, SerialReq.get()
 
 ################################################################################################
 ## set up Serial Coms
 ################################################################################################
 ComsState = False
-SerialReq = False
+SerialReq = 0
 
-while not ComsState or SerialReq:
+while not ComsState and SerialReq== 0:
     ComsState, SerialReq = runStartUp()
     print(SerialReq)
 
