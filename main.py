@@ -94,6 +94,7 @@ def runStartUp():
 
     ComPortInput_Label = tk.Label(master=BodyFrame, text='Com Port:', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=0, pady=0)
     ComPortInput_entry = tk.Entry(BodyFrame)
+    ComPortInput_entry.insert(0, 'com4')
     ComPortInput_entry.pack(side='left', ipadx=0, padx=0, pady=0)
     ComPortExample_Label = tk.Label(master=BodyFrame, text='(Example: com3)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=0, pady=0)
 
@@ -166,12 +167,14 @@ TubeLengthFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 
 TubeLength_Label = tk.Label(master=TubeLengthFrame, text='Tube Length (mm)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 TubeLength_entry = tk.Entry(TubeLengthFrame)
+TubeLength_entry.insert(0,'100')
 TubeLength_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
 TubeRadiusFrame = tk.Frame(master=TubePropertiesFrame, width=400)
 TubeRadiusFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 TubeRadius_Label = tk.Label(master=TubeRadiusFrame, text='Tube Radius (mm)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 TubeRadius_entry = tk.Entry(TubeRadiusFrame)
+TubeRadius_entry.insert(0,'3.175')
 TubeRadius_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
 ###############################
@@ -186,24 +189,28 @@ TwistAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
 TwistAngleFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 TwistAngle_Label = tk.Label(master=TwistAngleFrame, text='Twist Angle (Deg)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 TwistAngle_entry = tk.Entry(TwistAngleFrame)
+TwistAngle_entry.insert(0,'35')
 TwistAngle_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
 FRAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
 FRAngleFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 FRAngle_Label = tk.Label(master=FRAngleFrame, text='FR Angle (Deg)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 FRAngle_entry = tk.Entry(FRAngleFrame)
+FRAngle_entry.insert(0,'45')
 FRAngle_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
 coldDrawRatioFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
 coldDrawRatioFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 coldDrawRatio_Label = tk.Label(master=coldDrawRatioFrame, text='Cold Draw Ratio', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 coldDrawRatio_entry = tk.Entry(coldDrawRatioFrame)
+coldDrawRatio_entry.insert(0,'3')
 coldDrawRatio_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
 CoilAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
 CoilAngleFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 CoilAngle_Label = tk.Label(master=CoilAngleFrame, text='Coil Angle (Deg)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 CoilAngle_entry = tk.Entry(CoilAngleFrame)
+CoilAngle_entry.insert(0,'45')
 CoilAngle_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
 ###############################
