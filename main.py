@@ -19,12 +19,12 @@ def ReadInputs():
     #reads inputs from text entries and passes them as a tuple
     twistAngle = TwistAngle_entry.get()
     tubeLength = TubeLength_entry.get()
-    tubeRadius = TubeRadius_entry.get()
+    tubeDiameter = TubeDiameter_entry.get()
     coldDrawRatio = coldDrawRatio_entry.get()
     FRAngle = FRAngle_entry.get()
     coilAngle = CoilAngle_entry.get()
 
-    return (twistAngle, tubeLength, tubeRadius, coldDrawRatio, FRAngle, coilAngle)
+    return (twistAngle, tubeLength, tubeDiameter, coldDrawRatio, FRAngle, coilAngle)
 
 def packAndSendMsg(Command):
     #Packs together our message, taking the command character and the text entries and sends it over serial
@@ -170,12 +170,12 @@ TubeLength_entry = tk.Entry(TubeLengthFrame)
 TubeLength_entry.insert(0,'100')
 TubeLength_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
-TubeRadiusFrame = tk.Frame(master=TubePropertiesFrame, width=400)
-TubeRadiusFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
-TubeRadius_Label = tk.Label(master=TubeRadiusFrame, text='Tube Radius (mm)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
-TubeRadius_entry = tk.Entry(TubeRadiusFrame)
-TubeRadius_entry.insert(0,'3.175')
-TubeRadius_entry.pack(side='left', ipadx=0, padx=0, pady=0)
+TubeDiameterFrame = tk.Frame(master=TubePropertiesFrame, width=400)
+TubeDiameterFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+TubeDiameter_Label = tk.Label(master=TubeDiameterFrame, text='Tube Diameter (mm)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
+TubeDiameter_entry = tk.Entry(TubeDiameterFrame)
+TubeDiameter_entry.insert(0,'3.175')
+TubeDiameter_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
 ###############################
 ## Muscle Properties
