@@ -194,7 +194,7 @@ TwistAngle_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
 FRAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
 FRAngleFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
-FRAngle_Label = tk.Label(master=FRAngleFrame, text='FR Angle (Deg)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
+FRAngle_Label = tk.Label(master=FRAngleFrame, text='FR Pitch (mm)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 FRAngle_entry = tk.Entry(FRAngleFrame)
 FRAngle_entry.insert(0,'45')
 FRAngle_entry.pack(side='left', ipadx=0, padx=0, pady=0)
