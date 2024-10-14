@@ -208,9 +208,9 @@ coldDrawRatio_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
 CoilAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
 CoilAngleFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
-CoilAngle_Label = tk.Label(master=CoilAngleFrame, text='Coil Angle (Deg)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
+CoilAngle_Label = tk.Label(master=CoilAngleFrame, text='Coil Pitch (mm)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 CoilAngle_entry = tk.Entry(CoilAngleFrame)
-CoilAngle_entry.insert(0,'45')
+CoilAngle_entry.insert(0,'8')
 CoilAngle_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
 ###############################
