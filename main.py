@@ -64,7 +64,7 @@ def ConnectSerial(PortString):
     ConnectionStateMessage.set("...")
     try:
         ser = serial.Serial(port= PortString, baudrate=9600, timeout=10)  # create Serial Object, baud = 9600, read times out after 10s
-        time.sleep(3)  # delay 3 seconds to allow serial com to get established
+        time.sleep(.1)  # delay 3 seconds to allow serial com to get established
 
         ConnectionStateMessage.set("Connected")
         ConnectionState = True
@@ -196,7 +196,7 @@ FRAngleFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
 FRAngleFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
 FRAngle_Label = tk.Label(master=FRAngleFrame, text='FR Pitch (mm)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
 FRAngle_entry = tk.Entry(FRAngleFrame)
-FRAngle_entry.insert(0,'45')
+FRAngle_entry.insert(0,'7')
 FRAngle_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
 coldDrawRatioFrame = tk.Frame(master=MusclePropertiesFrame, width=400)
