@@ -238,7 +238,7 @@ HomeButton = tk.Button(TopRowControlsFrame,
                                        width=10,
                                        bd=5,
                                        activebackground='green'
-                                       ).pack(side='left', ipadx=10, padx=10, pady=40)
+                                       ).pack(side='left', ipadx=10, padx=10, pady=10)
 
 ColdDrawButton = tk.Button(TopRowControlsFrame,
                                        text="Cold Draw",
@@ -248,7 +248,7 @@ ColdDrawButton = tk.Button(TopRowControlsFrame,
                                        width=10,
                                        bd=5,
                                        activebackground='green'
-                                       ).pack(side='left', ipadx=10, padx=10, pady=40)
+                                       ).pack(side='left', ipadx=10, padx=10, pady=10)
 
 FrButton = tk.Button(TopRowControlsFrame,
                                        text="Fiber Reinforce",
@@ -258,7 +258,7 @@ FrButton = tk.Button(TopRowControlsFrame,
                                        width=10,
                                        bd=5,
                                        activebackground='green'
-                                       ).pack(side='left', ipadx=10, padx=10, pady=40)
+                                       ).pack(side='left', ipadx=10, padx=10, pady=10)
 
 TwistButton = tk.Button(TopRowControlsFrame,
                                        text="Twist",
@@ -268,7 +268,7 @@ TwistButton = tk.Button(TopRowControlsFrame,
                                        width=10,
                                        bd=5,
                                        activebackground='green'
-                                       ).pack(side='left', ipadx=10, padx=10, pady=40)
+                                       ).pack(side='left', ipadx=10, padx=10, pady=10)
 
 CoilButton = tk.Button(TopRowControlsFrame,
                                        text="Coil",
@@ -278,7 +278,49 @@ CoilButton = tk.Button(TopRowControlsFrame,
                                        width=10,
                                        bd=5,
                                        activebackground='green'
-                                       ).pack(side='left', ipadx=10, padx=10, pady=40)
+                                       ).pack(side='left', ipadx=10, padx=10, pady=10)
+
+MiddleRowControlsFrame=tk.Frame(master=ControlsFrame, width=400)
+MiddleRowControlsFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+JogFollowerUpButton = tk.Button(MiddleRowControlsFrame,
+                                       text="Follower Up",
+                                       command= lambda: packAndSendMsg('G'),
+                                       height=3,
+                                       fg="black",
+                                       width=10,
+                                       bd=5,
+                                       activebackground='green'
+                                       ).pack(side='left', ipadx=10, padx=10, pady=10)
+
+JogFollowerDownButton = tk.Button(MiddleRowControlsFrame,
+                                       text="Follower Down",
+                                       command= lambda: packAndSendMsg('H'),
+                                       height=3,
+                                       fg="black",
+                                       width=10,
+                                       bd=5,
+                                       activebackground='green'
+                                       ).pack(side='left', ipadx=10, padx=10, pady=10)
+
+JogRunnerUpButton = tk.Button(MiddleRowControlsFrame,
+                                       text="Runner Up",
+                                       command= lambda: packAndSendMsg('I'),
+                                       height=3,
+                                       fg="black",
+                                       width=10,
+                                       bd=5,
+                                       activebackground='green'
+                                       ).pack(side='left', ipadx=10, padx=10, pady=10)
+
+JogRunnerDownButton = tk.Button(MiddleRowControlsFrame,
+                                       text="Runner Down",
+                                       command= lambda: packAndSendMsg('J'),
+                                       height=3,
+                                       fg="black",
+                                       width=10,
+                                       bd=5,
+                                       activebackground='green'
+                                       ).pack(side='left', ipadx=10, padx=10, pady=10)
 
 BottomRowControlsFrame=tk.Frame(master=ControlsFrame, width=400)
 BottomRowControlsFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
@@ -290,6 +332,6 @@ StopButton = tk.Button(BottomRowControlsFrame,
                                        width=10,
                                        bd=5,
                                        activebackground='red'
-                                       ).pack(side='bottom', ipadx=10, padx=10, pady=40)
+                                       ).pack(side='top', ipadx=10, padx=10, pady=10)
 
 tk.mainloop()
