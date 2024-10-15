@@ -292,6 +292,8 @@ JogFollowerUpButton = tk.Button(MiddleRowControlsFrame,
                                        activebackground='green'
                                        ).pack(side='left', ipadx=10, padx=10, pady=10)
 
+#JogFollowerUpButton.bind()
+
 JogFollowerDownButton = tk.Button(MiddleRowControlsFrame,
                                        text="Follower Down",
                                        command= lambda: packAndSendMsg('H'),
