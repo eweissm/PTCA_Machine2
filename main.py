@@ -23,8 +23,8 @@ def ReadInputs():
     coldDrawRatio = coldDrawRatio_entry.get()
     FRAngle = FRAngle_entry.get()
     coilAngle = CoilAngle_entry.get()
-
-    return (twistAngle, tubeLength, tubeDiameter, coldDrawRatio, FRAngle, coilAngle)
+    MandrelDiameter = MandrelDiameter_entry.get()
+    return (twistAngle, tubeLength, tubeDiameter, coldDrawRatio, FRAngle, coilAngle,MandrelDiameter)
 
 def packAndSendMsg(Command):
     #Packs together our message, taking the command character and the text entries and sends it over serial
@@ -177,6 +177,12 @@ TubeDiameter_entry = tk.Entry(TubeDiameterFrame)
 TubeDiameter_entry.insert(0,'3.175')
 TubeDiameter_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 
+MandrelDiameterFrame = tk.Frame(master=TubePropertiesFrame, width=400)
+MandrelDiameterFrame.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+MandrelDiameter_Label = tk.Label(master=MandrelDiameterFrame, text='Mandrel Diameter (mm)', font=("Courier", 12, 'bold')).pack(side='left', ipadx=0, padx=10, pady=0)
+MandrelDiameter_entry = tk.Entry(MandrelDiameterFrame)
+MandrelDiameter_entry.insert(0,'3.0')
+MandrelDiameter_entry.pack(side='left', ipadx=0, padx=0, pady=0)
 ###############################
 ## Muscle Properties
 ###############################
