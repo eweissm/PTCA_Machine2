@@ -1,3 +1,7 @@
+#TODO:
+# cold draw stepper stops randomly on jogs down.
+
+
 import tkinter as tk
 import serial
 import time
@@ -292,7 +296,6 @@ JogFollowerUpButton = tk.Button(MiddleRowControlsFrame,
                                        activebackground='green'
                                        ).pack(side='left', ipadx=10, padx=10, pady=10)
 
-#JogFollowerUpButton.bind()
 
 JogFollowerDownButton = tk.Button(MiddleRowControlsFrame,
                                        text="Follower Down",
