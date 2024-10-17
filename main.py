@@ -1,5 +1,5 @@
 #TODO:
-# cold draw stepper stops randomly on jogs down.
+# cold draw stepper stops randomly on jogs down --> Could not replicate bug
 # some twist imparted during FR
 # FR randomly stops and must be restarted manually
 # FR spacing a little small (we wanted 7mm but I got 5.5-6.5
@@ -36,6 +36,7 @@ def ReadInputs():
 def packAndSendMsg(Command):
     #Packs together our message, taking the command character and the text entries and sends it over serial
     global ser
+    print(Command)
     Parameters = ReadInputs()
     msg = Command  # Add command indicator to msg
 
