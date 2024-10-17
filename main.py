@@ -1,9 +1,4 @@
-#TODO:
-# cold draw stepper stops randomly on jogs down --> Could not replicate bug
-# some twist imparted during FR
-# FR randomly stops and must be restarted manually
-# FR spacing a little small (we wanted 7mm but I got 5.5-6.5
-# Writhe formula is Wrong
+
 
 import tkinter as tk
 import serial
