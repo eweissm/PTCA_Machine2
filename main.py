@@ -4,9 +4,6 @@
 import tkinter as tk
 import serial
 import time
-import sys, threading, queue
-#from StartUp import *
-#from ControlButtonFunctions import *
 
 global ser
 global ConnectionStateMessage
