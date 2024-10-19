@@ -1,4 +1,5 @@
-
+#TODO:
+# FR and coiling will randomly stop early
 
 import tkinter as tk
 import serial
