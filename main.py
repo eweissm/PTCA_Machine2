@@ -40,19 +40,19 @@ def packAndSendMsg(Command):
 
     ser.write(bytes(str(msg), 'UTF-8'))
 
-arduinoQueue = queue.Queue()
-localQueue = queue.Queue()
+# arduinoQueue = queue.Queue()
+# localQueue = queue.Queue()
 
-def listenToArduino():
-    message = b''
-    while True:
-        incoming = ser.read()
-        if (incoming == b'\n'):
-            arduinoQueue.put(message.decode('utf-8').strip().upper())
-            message = b''
-        else:
-            if ((incoming != b'') and (incoming != b'\r')):
-                 message += incoming
+# def listenToArduino():
+#     message = b''
+#     while True:
+#         incoming = ser.read()
+#         if (incoming == b'\n'):
+#             arduinoQueue.put(message.decode('utf-8').strip().upper())
+#             message = b''
+#         else:
+#             if ((incoming != b'') and (incoming != b'\r')):
+#                  message += incoming
 
 
 ConnectionState = False #default we are not connected
